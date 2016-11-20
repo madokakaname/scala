@@ -6,7 +6,7 @@ import helloworlds.collections.list.ListManager
 object Main {
   def main(args: Array[String]): Unit = {
     println("Hello, world!")
-    for (a <- 1 to 1000)
+    for (a <- 1 to 100)
     ListManager.test
   }
 }

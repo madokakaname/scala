@@ -7,6 +7,12 @@ import helloworlds.collections.CollectionsManager
   */
 object ListManager extends CollectionsManager{
   override def test: Unit = {
-    NameGenerator.generateRandomName
+
+    //call this method to get list of names
+    //NameGenerator.parseNameSurname
+
+
+    NameGenerator.generateRandomMaleName
+    NameGenerator.generateRandomFemaleName
   }
 }

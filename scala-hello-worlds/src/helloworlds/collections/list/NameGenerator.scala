@@ -6,28 +6,48 @@ import scala.util.Random
   * Created by Sergei on 20.11.2016.
   */
 object NameGenerator {
-  val firstPartList:List[String] = generateFirstPart
-  val secondPartList:List[String] = generateSecondPart
 
-  def generateRandomName: Unit = {
-    val name:String = getRandomFirstPart + " " + getRandomSecondPart
-//    val name = List(firstPartList, secondPartList).map()
+  def parseNameSurname: Unit = {
+    NameParser.parse(maleFirstNameFile, femaleFirstNameFile, lastNameFile)
+  }
+
+  val maleFirstNameFile = "C:/Users/Sergei/Documents/GitHub/scala/scala-hello-worlds/res/MaleFirstNames.txt"
+  val femaleFirstNameFile = "C:/Users/Sergei/Documents/GitHub/scala/scala-hello-worlds/res/FemaleFirstNames.txt"
+  val lastNameFile = "C:/Users/Sergei/Documents/GitHub/scala/scala-hello-worlds/res/LastNames.txt"
+  val maleFirstNamesList:List[String] = generateMaleFirstName
+  val femaleFirstNamesList:List[String] = generateFemaleFirstName
+  val secondNamesList:List[String] = generateSecondNames
+
+  def generateRandomMaleName: Unit = {
+    val name:String = maleFirstNamesList(Random.nextInt(maleFirstNamesList.size)) + " " + secondNamesList(Random.nextInt(secondNamesList.size))
     println(name)
   }
-  def getRandomFirstPart: String = {
-    firstPartList(Random.nextInt(firstPartList.size))
-  }
-  def getRandomSecondPart: String = {
-    secondPartList(Random.nextInt(secondPartList.size))
-  }
-  def generateFirstPart: List[String] = {
-    val firstPart = List("John", "Ivan", "Bill")
-    firstPart
-  }
-  def generateSecondPart: List[String] = {
-    val secondPart = List("Cena", "Petrov", "Gates")
-    secondPart
+
+  def generateRandomFemaleName: Unit = {
+    val name:String = femaleFirstNamesList(Random.nextInt(femaleFirstNamesList.size)) + " " + secondNamesList(Random.nextInt(secondNamesList.size))
+    println(name)
   }
 
+
+  def generateMaleFirstName: List[String] = {
+    val source = scala.io.Source.fromFile(maleFirstNameFile)
+    val firstPart = source.getLines().toList
+    source.close()
+    firstPart
+  }
+
+  def generateFemaleFirstName: List[String] = {
+    val source = scala.io.Source.fromFile(femaleFirstNameFile)
+    val firstPart = source.getLines().toList
+    source.close()
+    firstPart
+  }
+
+  def generateSecondNames: List[String] = {
+    val source = scala.io.Source.fromFile(lastNameFile)
+    val secondPart = source.getLines().toList
+    source.close()
+    secondPart
+  }
 
 }
