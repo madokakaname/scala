@@ -1,2 +1,2 @@
 # scala
-Some scala implementations
+Scala simple projects
