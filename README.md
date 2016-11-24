@@ -2,5 +2,5 @@
 Scala simple projects
 
 
-database adress:    
+default jdbc database adress:    
 val url = "jdbc:postgresql://localhost:5432/postgres"
