@@ -7,6 +7,7 @@ object Main {
     def main(args: Array[String]): Unit = {
 //      print("hello world")
       println("Hello, world!")
+//      ListManager.generateNames
       for (a <- 1 to 100)
         ListManager.test
     }

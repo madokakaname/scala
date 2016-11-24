@@ -8,8 +8,11 @@ import collections.CollectionsManager
 object ListManager extends CollectionsManager{
   override def test: Unit = {
 
-//    NameGenerator.parseNameSurname
     NameGenerator.generateRandomMaleName
     NameGenerator.generateRandomFemaleName
+  }
+  def generateNames: Unit = {
+    NameGenerator.parseNameSurname
+
   }
 }
