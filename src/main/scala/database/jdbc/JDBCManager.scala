@@ -25,10 +25,11 @@ object JDBCManager {
 
       // create the statement, and run the select query
       val statement = connection.createStatement()
-      val resultSet = statement.executeQuery("SELECT * FROM test_table")
+      val resultSet = statement.executeQuery("SELECT sn.name, n.nationality FROM second_name sn, nationalities n" + "\n"
+        + "where sn.nationality_id = n.nationality_id")
       while ( resultSet.next() ) {
-        val host = resultSet.getString("Aaaaa")
-        println("test: " + host + " ")
+        val nameToNationality = (resultSet.getString("name"), resultSet.getString("nationality"))
+        println(nameToNationality)
       }
     } catch {
       case e => e.printStackTrace
